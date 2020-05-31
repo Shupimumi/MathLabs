@@ -51,14 +51,14 @@ namespace InterpolationAndExtrapolation
 					1.80m, 1.85m, 1.90m, 1.95m, 2.00m, 2.05m, 2.10m };
 				decimal[] arrayOfFunctions = new decimal[] { 15.132m, 17.422m, 20.393m, 
 					23.994m, 28.16m, 32.812m, 37.857m, 43.189m, 48.689m, 54.225m, 59.653m,
-					64.817m, 69.55m };				
+					64.817m, 69.55m };
+				decimal[] argument = new decimal[30];
 				decimal length_1 = arrayOfArguments.Length;
 				decimal length_2 = arrayOfFunctions.Length;
 				decimal xytables_middle = Math.Round(length_1 / 2);
-				decimal[] argument = new decimal[30];
 				for (int i = 0; i < 30; i++)
 				{
-				argument[i] = 1.83m - (i + 1) * 0.003m;
+				argument[i] = 1.83m + (i + 1) * 0.003m;
 				//Console.WriteLine(argument[i]);
 			}
 
@@ -118,23 +118,23 @@ namespace InterpolationAndExtrapolation
 				Console.WriteLine("x ={0} \t y = {1}\n", argument[i], y);
 			}
 		}
-		private static void bessel(decimal[] argument, decimal xytables_middle,
-			decimal[] arrayOfArguments, decimal[] arrayOfFunctions,
-			decimal[] delta_first, decimal[] delta_second, decimal[] delta_third,
-			 decimal delta_first_middle, decimal delta_second_middle, decimal delta_third_middle)
-		{
-			Console.WriteLine("\n2)Bessel's formula :");
-			for (int i = 0; i < 30; i++)
+			private static void bessel(decimal[] argument, decimal xytables_middle,
+				decimal[] arrayOfArguments, decimal[] arrayOfFunctions,
+				decimal[] delta_first, decimal[] delta_second, decimal[] delta_third,
+				 decimal delta_first_middle, decimal delta_second_middle, decimal delta_third_middle)
 			{
-				decimal t = (argument[i] - arrayOfArguments[Convert.ToInt32(xytables_middle)]) / 0.05m;
-				decimal y = (arrayOfFunctions[Convert.ToInt32(xytables_middle)] + 
-				arrayOfFunctions[Convert.ToInt32(xytables_middle - 1)]) / 2m +
-				(t - 0.5m) * delta_first[Convert.ToInt32(delta_first_middle)] +
-				t * (t - 1m) * (delta_second[Convert.ToInt32(delta_second_middle - 1)] +
-				delta_second[Convert.ToInt32(delta_second_middle)]) / 4m;
-				Console.WriteLine("x = {0} \t y = {1}\n", argument[i], y);
+				Console.WriteLine("\n2)Bessel's formula :");
+				for (int i = 0; i < 30; i++)
+				{
+					decimal t = (argument[i] - arrayOfArguments[Convert.ToInt32(xytables_middle)]) / 0.05m;
+					decimal y = ((arrayOfFunctions[Convert.ToInt32(xytables_middle)] + 
+					arrayOfFunctions[Convert.ToInt32(xytables_middle - 1)]) / 2m +
+					(t - 0.5m) * delta_first[Convert.ToInt32(delta_first_middle)] +
+					t * (t - 1m) * (delta_second[Convert.ToInt32(delta_second_middle - 1)] +
+					delta_second[Convert.ToInt32(delta_second_middle)]) / 4m)+5m;
+					Console.WriteLine("x = {0} \t y = {1}\n", argument[i], y);
+				}
 			}
-		}
 
 		private static void stirling(decimal[] argument, decimal xytables_middle,
 			decimal[] arrayOfArguments, decimal[] arrayOfFunctions,

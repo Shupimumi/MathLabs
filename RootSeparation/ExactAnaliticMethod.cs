@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace RootSeparation
 {
-	public partial class MainWindow : Form
+	public partial class ExactAnaliticMethod : Form
 	{
-		private Logic logic;
-
-		public MainWindow()
+		public ExactAnaliticMethod()
 		{
 			InitializeComponent();
-		}
-
-		private void MainWindow_Load(object sender, EventArgs e)
-		{
-
 		}
 	}
 }
