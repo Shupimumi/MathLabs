@@ -42,36 +42,36 @@ namespace Solution
         }
         static void firstMethod(string function_1, string derivativeFunction_1)
 		{
-            Console.WriteLine("\n\n\n\n\n\t1) The equation is f(x) = {0}.\n\t Derivative is f'(x) = {1}.", function_1,
+            Console.WriteLine("\n\n\n\n\n\t1)) Обозначим f(x) = {0}. Находим производную f'(x) = {1}.", function_1,
                 derivativeFunction_1);
-            Console.WriteLine("\n\tFinding of Derivative's roots:\n");
+            Console.WriteLine("\nВычислим корени производной:\n");
             Console.WriteLine("\t-2-2*exp^(-2*x) = 0");
             Console.WriteLine("\t-2*exp^(-2*x) = 2");
             Console.WriteLine("\t(-2*exp^(-2*x))/2 = 2/2");
             Console.WriteLine("\texp^(-2*x) = -1");
-            Console.WriteLine("\tMaking replacement...");
+            Console.WriteLine("\tВыполним замену");
             Console.WriteLine("\texp^(-2*x) = V");
             Console.WriteLine("\tV = -1");
-            Console.WriteLine("\tBack replacement");
+            Console.WriteLine("\tОбратная замена");
             Console.WriteLine("\texp^(-2*x) = V");
             Console.WriteLine("\tx = -(log(V))/2");
-            Console.WriteLine("\tFinal calculation:");
+            Console.WriteLine("\tВычислим корни");
             Console.WriteLine("\tx1 = -(log(-1))/log(exp^(-2)) = -i*Pi/2");
             Console.WriteLine("\tx2 = +i*Pi/2");
-            Console.WriteLine("\tAnswer is x1 = -i*Pi/2; x2 =+i*Pi/2 .");      
+            Console.WriteLine("\tОтвет: x1 = -i*Pi/2; x2 =+i*Pi/2 .");      
         }
 
         static void secondMethod(double[] samplesSolutions, Dictionary<double, char> 
             markOfFunction, int solutionsCount, double a, double b, double e, string format,
             double secondElement, double firstElement)
 		{
-            Console.WriteLine("\n\n\n\n2) The equation is - f(x) = x^4 + 4*x^3 - 8*x^2 - 17\nDerivative is f'(x) = 4*x^3 + 12*x^2 - 16*x");
-            Console.WriteLine("\nRoots finding ....\n");
+            Console.WriteLine("\n\n\n\n2) Полагая f(x) = x^4 + 4*x^3 - 8*x^2 - 17, имеем f'(x) = 4*x^3 + 12*x^2 - 16*x");
+            Console.WriteLine("\nНайдём корни производной:\n");
             Console.WriteLine("x^3 + 3*x^2 - 4*x");
             Console.WriteLine("x(x^2 + 3*x - 4) = 0\n");
             for (int i = 0; i < samplesSolutions.Length; i++)
                 Console.WriteLine($"x{i + 1} = {samplesSolutions[i],2}");
-            Console.WriteLine("\nMarks table:");
+            Console.WriteLine("\nCоставим таблицу знаков функции:");
             for (int i = 0; i < samplesSolutions.Length; i++)
             {
                 char mark;
@@ -112,10 +112,11 @@ namespace Solution
                     solutionsCount++;
             }
 
-            Console.WriteLine("\nThe number of real roots of the equation " + solutionsCount);
+            Console.WriteLine("\nЧисло действительных корней уравнения (исходя из таблицы):" + solutionsCount);
             a = markOfFunction.ElementAt(0).Key;
             b = markOfFunction.ElementAt(1).Key;
-            Console.WriteLine($"\n We clarifying one of the roots by sample method,\n Our root is x1\n gap is [{a}, {b}]:\n");
+            Console.WriteLine($"\n nУточним один из корней, например x1 на промежутке [{a}, {b}]," +
+                $" методом проб до сотых долей:\n Корень - x1\n отрезок [{a}, {b}]:\n");
             Console.WriteLine(format, 'n', "an+", "bn-", "xn=(an+bn)/2", "f(xn)");
             for (int i = 0; ; i++)
             {
@@ -129,7 +130,7 @@ namespace Solution
                 if (b - a <= e)
                 {
                     Console.WriteLine($"{a,14:0.###}{b,10:0.###}");
-                    Console.WriteLine($"\nAnswer: x1 = {x:0.000}.");
+                    Console.WriteLine($"\nОтвет: x1 = {x:0.000}.");
                     break;
                 }
             }
@@ -137,9 +138,9 @@ namespace Solution
         }
         static void thirdMethod(double[] solutions)
 		{
-            Console.WriteLine("\n\n\n\n3) The equation - 0,5*x - 1 = (x+2)^2 ");
-            Console.WriteLine("\ny1 = 0,5*x - 1, \ny2 = (x+2)^2,\nbuilding a chart.");
-            Console.WriteLine("\nThe number of valid roots: " + solutions.Length);
+            Console.WriteLine("\n\n\n\n3) Перепишем уравнение 0,5*x - 1 = (x+2)^2. ");
+            Console.WriteLine("\nnОбозначим  y1 = 0,5*x - 1, y2 = (x+2)^2, построим графики этих функций.");
+            Console.WriteLine("\nnЧисло действительных корней уравнения (исходя из построений): " + solutions.Length);
             for (int i = 0; i < solutions.Length; i++)
                 Console.WriteLine($"x{i + 1} = {solutions[i],4}");
         }
@@ -147,15 +148,14 @@ namespace Solution
             Dictionary<double, char> markOfFunction, string format, double exponent)
 		{
             double secondGap = -1;
-            Console.WriteLine("\n\n\n\n\n4) Let's build a chart wtih our function x^2*cos(2*x) = -1.");
+            Console.WriteLine("\n\n\n\n\n4)Построим график функции  x^2*cos(2*x) = -1.");
             solutions = new double[] { -1.18, 0.00, 1.18 };
-            Console.WriteLine("\nThe number of valid roots: " + solutions.Length);
+            Console.WriteLine("\nnЧисло действительных корней уравнения (исходя из построений): " + solutions.Length);
             for (int i = 0; i < solutions.Length; i++)
                 Console.WriteLine($"x{i + 1} = {solutions[i],6}");
-            Console.WriteLine($"\nWe refine one of the roots, for example, x1 by the method of samples to hundredths." +
-                $"\nTo clarify this root " +
-                $"choose a gap at the ends of which the function has different marks.");
-            Console.WriteLine("\nOur table is:");
+            Console.WriteLine($"\nУточним один из корней, например x1 методом проб до сотых долей. Для уточнения этого корня" +
+                $"\nвыберем промежуток, на концах которого функция имеет разные знаки. ");
+            Console.WriteLine("\nnСоставим таблицу:");
             firstElement = -1.4;
             secondElement = -1;
             
@@ -187,7 +187,7 @@ namespace Solution
                 if (secondElement - firstElement <= exponent)
                 {
                     Console.WriteLine($"{firstElement,14:0.###}{secondGap,10:0.###}");
-                    Console.WriteLine($"\nAnswer is: x1 = {x:0.000}.");
+                    Console.WriteLine($"\n Ответ: x1 = {x:0.000}.");
                     break;
                 }
             }
